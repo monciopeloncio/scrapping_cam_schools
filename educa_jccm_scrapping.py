@@ -91,7 +91,11 @@ print(f'Total results:{total_results}', end="\n")
 
 for i in range(3, int(total_results.replace('.', '')) + 3, 3):
     print(f'Scraping page {i}', end="\n")
-    get_page_results(i)
+    try:
+        get_page_results(i)
+    except Exception as identifier:
+        print(identifier, end='\n')
+
 
 df = pd.DataFrame(
     {
